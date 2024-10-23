@@ -9,6 +9,7 @@ Note: This class is particularly useful for Windows 11 users who prefer the
 Windows 10 style context menu. It provides a way to restore the classic menu 
 with optional notifications for feedback on the process.
 */
+
 /**
  * ;! There is a function only script at the bottom. It is commented out.
 */
@@ -22,8 +23,8 @@ with optional notifications for feedback on the process.
 /*
 	Class: ExplorerClassicContextMenu
 	Description: Handles the restoration of the classic (Windows 10 style) context menu in Windows 11
-	Usage: menu := ExplorerClassicContextMenu(true)  ; Create instance with notifications enabled
-		menu := ExplorerClassicContextMenu()      ; Create instance with default notification setting
+	Usage: 	ExplorerClassicContextMenu(true)  ; Create instance with notifications enabled
+			ExplorerClassicContextMenu()      ; Create instance with default notification setting
 */
 
 Class ExplorerClassicContextMenu {
@@ -37,9 +38,10 @@ Class ExplorerClassicContextMenu {
 		Parameters:
 			notif - Optional boolean to enable/disable notifications (defaults to class property value)
 		Example:
-			menu := ExplorerClassicContextMenu(true)  ; Enable notifications
-			menu := ExplorerClassicContextMenu()      ; Use default (false)
+			ExplorerClassicContextMenu(true)  ; Enable notifications
+			ExplorerClassicContextMenu()      ; Use default (false)
 	*/
+
 	__New(notif := this.notify) {
 
 		if notif {
@@ -53,6 +55,7 @@ Class ExplorerClassicContextMenu {
 		Creates groups of Explorer windows for batch operations
 		Used internally before restarting Explorer process
 	*/
+
 	InitializeExplorerGroups() {
 
 		GroupAdd("ExplorerGroup", "ahk_class ExploreWClass")    ; Standard Explorer windows
@@ -68,6 +71,7 @@ Class ExplorerClassicContextMenu {
 		Returns: true if classic menu is enabled, false if modern menu is active
 		Also shows notification if this.notify is true
 	*/
+
 	CheckContextMenuState() {
 
 		currentValue := unset
@@ -90,6 +94,7 @@ Class ExplorerClassicContextMenu {
 		3. Create registry key if needed
 		4. Restart Explorer to apply changes
 	*/
+
 	RestoreClassicMenu() {
 
 		this.InitializeExplorerGroups()
@@ -134,6 +139,7 @@ Class ExplorerClassicContextMenu {
 			trayNotify("Title", "Message", "T3")      ; Show for 3 seconds
 			trayNotify("Title", "Message", 0x10, 5000) ; Show with info icon for 5 seconds
 	*/
+
 	trayNotify(title, message := '', options := 0, timeout?) {
 
 		; Extract timeout value if it exists in options string
@@ -174,6 +180,7 @@ Class ExplorerClassicContextMenu {
 		Helper method to properly hide tray notifications
 		Uses multiple approaches to ensure notification is hidden
 	*/
+	
 	HideTrayTip() {
 		A_IconHidden := true
 		Sleep(500)
