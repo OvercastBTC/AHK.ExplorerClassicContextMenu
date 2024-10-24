@@ -6,15 +6,16 @@ with optional notifications for feedback on the process._
 
 ## Class: ExplorerClassicContextMenu
 ## Description:
-### 	Handles the restoration of the classic (Windows 10 style) context menu in Windows 11
+#### 	Handles the restoration of the classic (Windows 10 style) context menu in Windows 11
 ## Usage:
-### 	ExplorerClassicContextMenu(true)  	; Create instance with notifications enabled
-###		ExplorerClassicContextMenu()      	; Create instance with default notification setting
+#### 	ExplorerClassicContextMenu(true)  	; Create instance with notifications enabled
+####	ExplorerClassicContextMenu()      	; Create instance with default notification setting
 
-# To run this automatically add the script to your library:
+
+### To run this automatically add the script to your library:
 
 ```
-<ExplorerClassicContextMenu.ahk>
+<ExplorerClassicContextMenu>
 ```
 
 ### Put this somewhere in your main script:
